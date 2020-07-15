@@ -1,0 +1,91 @@
+name: Deploy in Dev region
+
+
+
+
+
+
+
+on:
+
+  push:
+
+    branches: [ master ]
+
+    
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    
+
+    strategy:
+
+      matrix:
+
+        node-version: [12.x]
+
+        python-version: [3.7]
+
+
+
+    steps:
+
+    - name: Checkout Code
+
+      uses: actions/checkout@v2
+
+      
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+
+      uses: actions/setup-node@v1
+
+      with:
+
+        node-version: ${{ matrix.node-version }}
+
+        
+
+    - name: Install AWS CDK
+
+      run: npm install -g aws-cdk
+
+      
+
+    - name: Set up Python ${{ matrix.python-version }}
+
+      uses: actions/setup-python@v2
+
+      with:
+
+        python-version: ${{ matrix.python-version }}
+
+        
+
+    - name: Install Python Dependencies
+
+      run: |
+
+        python -m pip install --upgrade pip  
+
+        pip install -r requirements.txt
+
+        
+
+    - name: Set AWS Credentials and Deploy
+
+      run: |
+
+        export AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+
+        export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+
+        export AWS_DEFAULT_REGION=us-east-2
+
+        cdk diff
+
+        cdk deploy --require-approval never 
