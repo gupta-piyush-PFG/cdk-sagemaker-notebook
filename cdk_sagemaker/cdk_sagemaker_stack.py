@@ -15,7 +15,7 @@ class CdkSagemakerStack(core.Stack):
             removal_policy=core.RemovalPolicy.DESTROY)
         
         bucket2 = s3.Bucket(self,
-    		"BucketCDK", 
+    		"BucketCDK1", 
     		versioned=True,
     		bucket_name='minotaur-data-bucket-1',
             removal_policy=core.RemovalPolicy.DESTROY)
