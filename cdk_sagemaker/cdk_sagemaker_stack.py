@@ -11,12 +11,18 @@ class CdkSagemakerStack(core.Stack):
         bucket1 = s3.Bucket(self,
     		"BucketCDK", 
     		versioned=True,
-    		bucket_name='cdk-sagemaker-bucket-s843971001',
+    		bucket_name='Minotaur-data-bucket',
+            removal_policy=core.RemovalPolicy.DESTROY)
+        
+        bucket2 = s3.Bucket(self,
+    		"BucketCDK", 
+    		versioned=True,
+    		bucket_name='Minotaur-project-files-bucket',
             removal_policy=core.RemovalPolicy.DESTROY)
 
         sm_notebook = sagemaker.CfnNotebookInstance(self,
         "SageMakerNotebookInstance",
          instance_type='ml.m4.xlarge',
          role_arn='arn:aws:iam::304472691870:role/aws-sagemaker-role-s843971',
-         notebook_instance_name='cdk-sagemaker-notebook-s843971',
+         notebook_instance_name='Minotaur-notebook',
          default_code_repository='https://github.com/abdul-pfg/sagemaker-iris')
