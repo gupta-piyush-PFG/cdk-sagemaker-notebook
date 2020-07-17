@@ -14,7 +14,7 @@ class CdkSagemakerStack(core.Stack):
     		bucket_name='minotaur-data-bucket',
             removal_policy=core.RemovalPolicy.DESTROY)
 
-        notebook = sagemaker.CfnNotebookInstance(self,
+        sm_notebook = sagemaker.CfnNotebookInstance(self,
         "SageMakerNotebookInstance",
          instance_type='ml.m4.xlarge',
          role_arn='arn:aws:iam::304472691870:role/aws-sagemaker-role-s843971',
