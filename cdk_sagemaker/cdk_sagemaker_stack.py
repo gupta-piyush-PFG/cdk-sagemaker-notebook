@@ -9,13 +9,13 @@ class CdkSagemakerStack(core.Stack):
         super().__init__(scope, id, **kwargs)
 
         bucket1 = s3.Bucket(self,
-    		"BucketCDK", 
+    		"BucketCDK1", 
     		versioned=True,
     		bucket_name='minotaur-data-bucket',
             removal_policy=core.RemovalPolicy.DESTROY)
         
         bucket2 = s3.Bucket(self,
-    		"BucketCDK", 
+    		"BucketCDK2", 
     		versioned=True,
     		bucket_name='minotaur-project-files-bucket',
             removal_policy=core.RemovalPolicy.DESTROY)
