@@ -13,12 +13,6 @@ class CdkSagemakerStack(core.Stack):
     		versioned=True,
     		bucket_name='minotaur-data-bucket',
             removal_policy=core.RemovalPolicy.DESTROY)
-        
-        bucket2 = s3.Bucket(self,
-    		"BucketCDK2", 
-    		versioned=True,
-    		bucket_name='minotaur-project-files-bucket',
-            removal_policy=core.RemovalPolicy.DESTROY)
 
         sm_notebook = sagemaker.CfnNotebookInstance(self,
         "SageMakerNotebookInstance",
