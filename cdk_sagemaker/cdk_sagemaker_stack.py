@@ -20,7 +20,7 @@ class CdkSagemakerStack(core.Stack):
     		bucket_name='minotaur-project-files-bucket',
             removal_policy=core.RemovalPolicy.DESTROY)
 
-        role_Arn = core.CfnParameter(self, 'roleArn', type="String",
+        role_Arn = core.CfnParameter(self, "roleArn", type="String",
         description="Sagemaker role for IAM user")
         
         sm_notebook = sagemaker.CfnNotebookInstance(self,
