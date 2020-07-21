@@ -23,6 +23,5 @@ class CdkSagemakerStack(core.Stack):
         sm_notebook = sagemaker.CfnNotebookInstance(self,
         "SageMakerNotebookInstance",
          instance_type='ml.t2.medium',
-         role_arn='arn:aws:iam::148231576589:role/sagemaker-g406428',
-         notebook_instance_name='minotaur-notebook',
-         default_code_repository='https://github.com/abdul-pfg/sagemaker-iris')
+         role_arn="roleArn",
+         notebook_instance_name='minotaur-notebook')
