@@ -23,5 +23,5 @@ class CdkSagemakerStack(core.Stack):
         sm_notebook = sagemaker.CfnNotebookInstance(self,
         "SageMakerNotebookInstance",
          instance_type='ml.t2.medium',
-         "roleArn",
+         role_arn="roleArn",
          notebook_instance_name='minotaur-notebook')
