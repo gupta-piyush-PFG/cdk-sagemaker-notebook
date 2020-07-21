@@ -37,4 +37,4 @@ jobs:
         export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY_STAGE }}
         export AWS_DEFAULT_REGION=us-east-2
         cdk diff
-        cdk deploy --require-approval never --parameters roleArn="arn:aws:iam::304472691870:role/service-role/AmazonSageMaker-ExecutionRole-20190703T121628"
+        cdk deploy --require-approval never --parameters roleArn= arn:aws:iam::304472691870:role/service-role/AmazonSageMaker-ExecutionRole-20190703T121628
